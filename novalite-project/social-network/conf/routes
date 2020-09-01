@@ -1,0 +1,64 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# https://www.playframework.com/documentation/latest/ScalaRouting
+# ~~~~
+
+# An example controller showing a sample home page
+GET     /                           controllers.UserController.index
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+GET     /api/users                  controllers.UserController.getUsers
+
+GET     /api/user/:id               controllers.UserController.getUser(id:Long)
+
+POST    /api/users                  controllers.UserController.addUser()
+
+DELETE  /api/user/:id               controllers.UserController.deleteUser(id:Long)
+
+PUT     /api/user/:id               controllers.UserController.updateUser(id:Long)
+
+GET     /api/filter/:keyWord        controllers.UserController.filterByName(keyWord:String)
+
+POST     /api/login                  controllers.UserController.login()
+
+GET     /api/user/:id/posts         controllers.PostController.getPostsByUser(id:Long)
+
+GET     /api/post/:id               controllers.PostController.getPost(id:Long)
+
+POST    /api/posts                  controllers.PostController.addPost()
+
+DELETE  /api/post/:id               controllers.PostController.deletePost(id:Long)
+
+PUT     /api/post/:id               controllers.PostController.editPost(id:Long)
+
+GET     /api/post/:id/people        controllers.PostController.showPeopleByPost(id:Long)
+
+GET     /api/increment/post/:id     controllers.PostController.incrementLikes(id:Long)
+
+GET     /api/post/:id/user          controllers.PostController.getUserByPostId(id:Long)
+
+
+GET     /api/loves                  controllers.LoveController.getAllLoves
+
+POST    /api/loves                  controllers.LoveController.addLove()
+
+
+
+
+POST    /api/friendship                         controllers.FriendshipController.addFriend()
+
+GET     /api/requests/:id                       controllers.FriendshipController.getFriendshipRequests(id:Long)
+
+GET     /api/friends/:id                        controllers.FriendshipController.getFriends(id:Long)
+
+GET     /api/checkfriendship/:id1/:id2          controllers.FriendshipController.checkFriendship(id1:Long, id2:Long)
+
+GET     /api/accept/:senderId/:accepterId       controllers.FriendshipController.accept(senderId:Long, accepterId:Long)
+
+DELETE   /api/decline/:senderId/:accepterId     controllers.FriendshipController.decline(senderId:Long, accepterId:Long)
+
+#GET     /api/friends/posts/:id                      controllers.FriendshipController.getFriendsPosts(id:Long)
+
+
